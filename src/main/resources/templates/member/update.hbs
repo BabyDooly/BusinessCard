@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NoticeBoard</title>
+    <link rel="stylesheet" href="../css/library/foundation.min.css">
+    <link rel="stylesheet" href="../css/app.css">
+    
+</head>
+<body>
+    <div class="top-bar">
+       	{{> common/topbar}}
+    </div>
+    <div class="grid-container grid-x">
+        <div class="cell">
+            <h3 class="text-center">내 정보</h3>
+        </div>
+        <form action="/member/update" method="POST" class="cell grid-x small-6 float-center">
+        	<input type="hidden" name="{{_csrf.parameterName}}" value="{{_csrf.token}}">
+            <div class="cell">
+                <label for="id">
+                    아이디
+                    <input type="text" name="id" id="id" placeholder="ID" value={{member.id}} readonly>
+                </label>
+            </div>
+            <div class="cell">
+                <label for="password">
+                    비밀번호
+                    <input type="password" name="password" id="password" placeholder="Password" readonly>
+                </label>
+            </div>
+            <!--
+            <div class="cell">
+                <label for="rePassword">
+                    RePassword
+                    <input type="password" name="rePassword" id="rePassword" placeholder="rePassword">
+                </label>
+            </div>
+             -->
+            <div class="cell">
+                <label for="name">
+                    이름
+                   <input type="text" name="Name" id="Name" placeholder="Name" value={{member.name}}>
+                </label>
+            </div>
+            <div class="cell">
+                <label for="email">
+                    이메일
+                    <input type="email" name="email" id="email" placeholder="Email" value={{member.email}}>
+                </label>
+            </div>
+            <div class="cell">
+                <label for="phone">
+                    전화번호
+                    <input type="tel" name="phone" id="phone" placeholder="PhoneNumber"  value={{member.phone}}>
+                </label>
+            </div>
+            <div class="cell">
+                <button type="submit" class="button float-center">업데이트</button>
+            </div>
+        </form>
+    </div>
+    <script src="../js/library/jquery.js"></script>
+    <script src="../js/library/foundation.min.js"></script>
+</body>
+</html>

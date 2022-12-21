@@ -1,0 +1,14 @@
+<div class="top-bar-left menu-text">
+	<a href="/"><h5>명함관리시스템</h5></a>
+</div>
+<div class="top-bar-right">
+	<div class="button-group" style="margin-bottom: 0rem;">
+	    <a class="button" href="/member/list"> 명함리스트</a>
+	    <a class="button" href="/">게시판</a>
+		{{#if SPRING_SECURITY_CONTEXT.authentication}}
+			<a class="button" href="/member/logout">로그아웃</a> <a class="button" href="/member/update">내 정보</a>
+		{{else}}
+			<a class="button" href="/member/login">로그인</a> <a class="button" href="/member/register">회원가입</a>
+		{{/if}}
+	</div>
+</div>

@@ -1,0 +1,15 @@
+ {{#if comment}} {{#each comment}}
+<div class="info cell grid-x">
+	<div class="author cell small-6">
+		<span class="float-left"> {{user}} </span>
+	</div>
+	<div class="date cell small-6">
+		<span class="float-right subheader"> {{createDate}} </span>
+	</div>
+</div>
+<div class="contents cell">{{contents}}</div>
+<hr class="cell">
+{{/each}}
+{{else}}
+	<h5>댓글이 없습니다</h5>
+{{/if}}

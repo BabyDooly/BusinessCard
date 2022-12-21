@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>NoticeBoard</title>
+<link rel="stylesheet" href="/css/library/foundation.min.css">
+<style>
+.ck-editor__editable {
+	min-height: 400px;
+}
+</style>
+</head>
+<body>
+	<div class="top-bar">{{> common/topbar}}</div>
+	<div class="grid-container">
+		<form action="/notice/write" method="post"
+			class="cell grid-x grid-margin-y">
+			<input type="hidden" name="{{_csrf.parameterName}}"
+				value="{{_csrf.token}}"> 
+			{{#with notice}}
+				<input type="hidden" name="num" value={{num}}>
+				<div class="cell">
+					<label for="title">제목 <input type="text" name="title"
+						id="title" value={{title}}>
+					</label>
+				</div>
+				<div class="cell">
+					<label for="contents">내용 <textarea name="contents"
+							id="editor">{{contents}}</textarea>
+					</label>
+				</div>
+
+			</div>
+			{{/with}}
+			<div class="cell small-6">
+				<button type="submit" class="button float-right">글쓰기</button>
+			</div>
+		</form>
+	</div>
+	<script src="/js/library/jquery.js"></script>
+	<script src="/js/library/foundation.min.js"></script>
+	<script src="/ckeditor5/ckeditor.js"></script>
+	<script>
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .catch(error=>console.log(error));
+            (function(){
+                var els = document.querySelectorAll("input[type=file]");
+                for (var i = 0; i < els.length; i++) {
+                    els[i].addEventListener("change", function() {
+                        var label = this.previousElementSibling;
+                        label.innerHTML = this.files[0].name;
+                    });
+                }
+            })();
+    </script>
+</body>
+</html>

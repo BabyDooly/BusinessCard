@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta id="_csrf" name="_csrf" content="{{_csrf.token}}">
+<meta id="_csrf_header" name="_csrf_header" content="{{_csrf.headerName}}">
+<title>NoticeBoard</title>
+<link rel="stylesheet" href="../css/library/foundation.min.css">
+<link rel="stylesheet" href="../css/app.css">
+</head>
+<body>
+	<div class="top-bar">{{> common/topbar}}</div>
+	<div class="grid-container">
+		{{> notice/read}}
+		<hr class="cell">
+		{{#if author}}
+		<div class="cell">
+			<button class="button" id="update" onclick="read.noticeUpdate();">수정</button> 
+		</div>
+		<hr class="cell">
+		{{/if}}
+		<div class="comments grid-x grid-margin-x">
+			<h3>댓글</h3>
+			<hr class="cell">
+			<div id="comment" class="cell">{{> notice/comment/read}}</div>
+			<div class="writeComment cell grid-x">
+				<h4 class="cell">댓글작성</h4>
+				<textarea name="comment" id="writeComment" cols="10" rows="5"
+					class="cell small-11"></textarea>
+				<button type="button" class="cell small-1 button" onclick="read.commentSave();">작성</button>
+			</div>
+		</div>
+	</div>
+	<script id="comment-template" type="text/x-handlebars-template">
+        {{{commentTemplate}}}
+  	</script>
+	<script src="../js/library/jquery.js"></script>
+	<script src="../js/library/foundation.min.js"></script>
+	<script src="../js/library/handlebars.js"></script>
+	<script src="../js/app/NoticeReadApp.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{{#if notice}}
+	{{#each notice}}
+		<tr data-notice={{num}}>
+			<td>{{num}}</td>
+			<td>{{title}}</td>
+			<td>{{user}}</td>
+			<td>{{createDate}}</td>
+		</tr>
+	{{/each}}
+{{else}}
+	<h5>게시물이 없습니다</h5>
+{{/if}}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Notice Board</title>
+
+<link rel="stylesheet" href="../css/library/foundation.min.css">
+<link rel="stylesheet" href="../css/app.css">
+
+</head>
+<body>
+    <div class="top-bar">
+        {{> common/topbar}}
+    </div>
+    <div class="grid-container grid-x">
+        <div class="cell">
+            <h3 class="text-center">LOGIN</h3>
+        </div>
+		<form method="POST" class="cell grid-x small-6 grid-margin-x float-center">
+			<input type="hidden" name="{{_csrf.parameterName}}"
+				value="{{_csrf.token}}">
+
+			<div class="cell">
+				<label for="username"> 아이디 <input type="text" name="username"
+					id="username" placeholder="ID" class="cell small-10">
+				</label>
+			</div>
+			<div class="cell">
+				<label for="password"> 비밀번호 <input type="password"
+					name="password" id="password" placeholder="Password"
+					class="cell small-10">
+				</label>
+			</div>
+			<button type="submit" class="button cell">로그인</button>
+		</form>
+	</div>
+
+	<script src="../js/library/jquery.js"></script>
+	<script src="../js/library/foundation.min.js"></script>
+</body>
+</html>

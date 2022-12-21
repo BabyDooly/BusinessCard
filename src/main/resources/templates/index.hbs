@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta id="_csrf" name="_csrf" content="{{_csrf.token}}">
+    <meta id="_csrf_header" name="_csrf_header" content="{{_csrf.headerName}}">
+    <title>NoticeBoard</title>
+    <link rel="stylesheet" href="/css/library/foundation.min.css">
+    <link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+<div class="top-bar">
+    {{> common/topbar}}
+</div>
+<div>
+    <div class="grid-container">
+        <table>
+            <thead>
+            <tr>
+                <th width="10%">번호</th>
+                <th width="50%">제목</th>
+                <th width="20%">작성자</th>
+                <th width="10%">날짜</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{> notice/list}}
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="4">
+                    <a class="button float-right" href="/notice/write">글쓰기</a>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+        <ul class="menu align-center-middle" data-totalpage={{pagecount}} data-nowpage={{nowpage}}>
+
+        </ul>
+    </div>
+
+</div>
+<script id="list-template" type="text/x-handlebars-template">
+        {{{listTemplate}}}
+  	</script>
+<script src="/js/library/jquery.js"></script>
+<script src="/js/library/foundation.min.js"></script>
+<script src="/js/library/handlebars.js"></script>
+<script src="/js/app/IndexApp.js" ></script>
+</body>
+</html>

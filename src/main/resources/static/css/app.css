@@ -1,0 +1,19 @@
+table tbody tr:nth-child(even){
+	background-color:#fefefe;
+}
+
+table tbody tr:hover{
+	background-color:#f1f1f1;
+}
+
+table tfoot{
+	background-color:white;
+}
+
+.top-bar-right .button{
+	margin-bottom: 0rem;
+}
+
+#writeComment{
+	margin-bottom: 0rem;
+}

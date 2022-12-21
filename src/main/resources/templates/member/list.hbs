@@ -1,0 +1,13 @@
+{{#if member}}
+	{{#each member}}
+		<tr data-notice={{num}}>
+			<td>{{id}}</td>
+			<td>{{name}}</td>
+			<td>{{email}}</td>
+			<td>{{phone}}</td>
+			<td>{{createDate}}</td>
+		</tr>
+	{{/each}}
+{{else}}
+	<h5>회원 내역이 없습니다</h5>
+{{/if}}
